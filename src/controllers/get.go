@@ -1,13 +1,11 @@
 package controllers
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-func Get(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
+func Get(ctx *gin.Context) {
+	ctx.JSON(200, gin.H{
 		"message": "server is ok",
 	})
 }

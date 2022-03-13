@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	r := gin.Default()
+	server := gin.Default()
 
-	r.GET("/", controllers.Get)
+	server.GET("/", controllers.Get)
 
-	r.Run(":9090")
+	server.Run(":9090")
 }
