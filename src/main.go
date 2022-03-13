@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/danxcraig/demob-main/src/controllers"
+	"github.com/danxcraig/demob-main/controllers"
 	"github.com/gin-gonic/gin"
 )
 
