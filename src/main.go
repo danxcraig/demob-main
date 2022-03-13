@@ -20,14 +20,20 @@ func main() {
 	setupLogOutput()
 
 	server := gin.New()
-
 	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
 
 	server.Static("/css", "./templates/css")
-
 	server.LoadHTMLGlob("templates/*.html")
 
-	server.GET("/", controllers.Get)
+	apiRoutes := server.Group("/api")
+	{
+		apiRoutes.GET("/", controllers.Get)
+	}
+
+	viewRoutes := server.Group("/view")
+	{
+		viewRoutes.GET("/page", nil)
+	}
 
 	server.Run(":9090")
 }
