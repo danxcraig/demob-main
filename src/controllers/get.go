@@ -9,3 +9,12 @@ func Get(ctx *gin.Context) {
 		"message": "server is ok",
 	})
 }
+
+func Test(ctx *gin.Context) {
+	var names []string = []string{"D", "P", "E"}
+	data := gin.H{
+		"titles": "the main title for the page",
+		"names":  names,
+	}
+	ctx.HTML(200, "index.html", data)
+}

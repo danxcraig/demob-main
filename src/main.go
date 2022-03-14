@@ -25,14 +25,14 @@ func main() {
 	server.Static("/css", "./templates/css")
 	server.LoadHTMLGlob("templates/*.html")
 
-	apiRoutes := server.Group("/api")
+	homepageRoute := server.Group("/")
 	{
-		apiRoutes.GET("/", controllers.Get)
+		homepageRoute.GET("/", controllers.Get)
 	}
 
-	viewRoutes := server.Group("/view")
+	testRoutes := server.Group("/test")
 	{
-		viewRoutes.GET("/page", nil)
+		testRoutes.GET("/", controllers.Test)
 	}
 
 	server.Run(":9090")
